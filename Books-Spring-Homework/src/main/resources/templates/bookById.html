@@ -1,0 +1,30 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${book.getTitle()}"></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        crossorigin="anonymous">
+</head>
+<body>
+
+<header th:insert="services/header :: header"></header>
+<main>
+
+  <div  class="container">
+
+      <h2 th:text="${book.getTitle()}"></h2>
+      <p th:text="${book.getDescription()}"></p>
+      <strong th:text="${book.getAuthor()}"></strong>
+      <p th:text="${book.getGenre()}"></p>
+      <p th:text="${book.getYear()}"></p>
+      <i th:text="${book.getPageCount()}"></i>
+     <hr>
+     <a th:href="'/editBook/'+${book.getId()}">EDIT</a>
+     <a th:href="'/bookDelete/'+${book.getId()}">REMOVE</a>
+
+  </div>
+</main>
+<footer th:insert="services/footer :: footer"></footer>
+
+</body>
+</html>

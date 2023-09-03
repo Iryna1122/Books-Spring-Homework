@@ -1,0 +1,32 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>About</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        crossorigin="anonymous">
+</head>
+<body>
+
+<header th:insert="services/header :: header"></header>
+<main>
+
+  <div class="container mt-10">
+
+    <form method="post" th:action="@{'/bookEditSave/' + ${book.getId()}}">
+      <input type="text" name="title" class="form-control col-md-7" placeholder="Title" th:value="${book.getTitle()}"><br>
+      <input type="text" name="author" class="form-control col-md-7" placeholder="Author" th:value="${book.getAuthor()}"><br>
+      <input type="number" name="year" class="form-control col-md-7" placeholder="Year" th:value="${book.getYear()}"><br>
+      <input type="text" name="genre" class="form-control col-md-7" placeholder="Genre" th:value="${book.getGenre()}"><br>
+      <input type="number" name="countPage" class="form-control col-md-7" placeholder="Count page" th:value="${book.getPageCount()}"><br>
+      <textarea  name="description" placeholder="Description" class="form-control col-md-7" th:value="${book.getDescription()}" ></textarea><br>
+
+
+      <input type="submit"  value="EDIT" class="col-md-7">
+    </form>
+
+  </div>
+</main>
+<footer th:insert="services/footer :: footer"></footer>
+
+</body>
+</html>
